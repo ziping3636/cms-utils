@@ -103,4 +103,16 @@ public class StringUtil {
 		String lastName = randomChineseString(RandomUtil.random(1, 2));
 		return firstName + lastName;
 	}
+
+	/**
+	 * @Title: isNumber
+	 * @Description: TODO判断输入是否是数字
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isNumber(String str) {
+		String regex = "^(-)?[0-9]+(.[0-9]+)?$";
+		return str.matches(regex);
+	}
 }
