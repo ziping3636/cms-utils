@@ -65,13 +65,30 @@ public class DateUtil {
 		return new Date(ultimateTime);
 	}
 
-	/*
-	 * public static void main(String[] args) throws ParseException {
-	 * SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); String startDate =
-	 * "2019-01-01"; String endDate = "2012-01-01"; for (int i = 0; i < 100; i++) {
-	 * 
-	 * Date random = random(sdf.parse(startDate), sdf.parse(endDate));
-	 * System.out.println(sdf.format(random)); } }
+	/**
+	 * @Title: getAge
+	 * @Description: TODO根据获得的生日精确计算年龄
+	 * @param birthday
+	 * @return
+	 * @return: int
 	 */
+	public static int getAge(Date birthday) {
+		Calendar instance = Calendar.getInstance();
+		int yearNow = instance.get(Calendar.YEAR);
+		int monthNow = instance.get(Calendar.MONTH);
+		int dayOfMonthNow = instance.get(Calendar.DAY_OF_MONTH);
+		instance.setTime(birthday);
+		int yearBirth = instance.get(Calendar.YEAR);
+		int monthBirth = instance.get(Calendar.MONTH);
+		int dayOfMonthBirth = instance.get(Calendar.DAY_OF_MONTH);
+		int age = yearNow - yearBirth;
+		if (monthNow < monthBirth) {
+			age--;
+		}
+		if (dayOfMonthNow < dayOfMonthBirth) {
+			age--;
+		}
+		return age;
+	}
 
 }
