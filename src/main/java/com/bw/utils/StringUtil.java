@@ -115,4 +115,8 @@ public class StringUtil {
 		String regex = "^(-)?[0-9]+(.[0-9]+)?$";
 		return str.matches(regex);
 	}
+	
+	public static String replace(String str, String src, String dst) {
+		return str.replace(src, dst);
+	}
 }
