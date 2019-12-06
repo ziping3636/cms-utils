@@ -76,16 +76,16 @@ public class DateUtil {
 		Calendar instance = Calendar.getInstance();
 		int yearNow = instance.get(Calendar.YEAR);
 		int monthNow = instance.get(Calendar.MONTH);
-		int dayOfMonthNow = instance.get(Calendar.DAY_OF_MONTH);
+		int dateOfMonthNow = instance.get(Calendar.DAY_OF_MONTH);
 		instance.setTime(birthday);
 		int yearBirth = instance.get(Calendar.YEAR);
 		int monthBirth = instance.get(Calendar.MONTH);
-		int dayOfMonthBirth = instance.get(Calendar.DAY_OF_MONTH);
+		int dateOfMonthBirth = instance.get(Calendar.DAY_OF_MONTH);
 		int age = yearNow - yearBirth;
 		if (monthNow < monthBirth) {
 			age--;
 		}
-		if (dayOfMonthNow < dayOfMonthBirth) {
+		if (dateOfMonthNow < dateOfMonthBirth && monthNow == monthBirth) {
 			age--;
 		}
 		return age;
