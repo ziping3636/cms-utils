@@ -1,6 +1,8 @@
 package com.bw.utils;
 
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringUtil {
 
@@ -115,8 +117,21 @@ public class StringUtil {
 		String regex = "^(-)?[0-9]+(.[0-9]+)?$";
 		return str.matches(regex);
 	}
-	
-	public static String replace(String str, String src, String dst) {
-		return str.replace(src, dst);
+
+	/**
+	 * @Title: getPlaceHolderValue
+	 * @Description: TODO根据传入的值 src 和 正则表达式 regex 进行获取到src中的目标串
+	 * @param src
+	 * @param regex
+	 * @return
+	 * @return: String
+	 */
+	public static String getPlaceHolderValue(String src, String regex) {
+		Pattern compile = Pattern.compile(regex);
+		Matcher matcher = compile.matcher(src);
+		if (matcher.find()) {
+			return matcher.group();
+		}
+		return null;
 	}
 }
