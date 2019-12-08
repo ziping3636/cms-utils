@@ -134,4 +134,34 @@ public class StringUtil {
 		}
 		return null;
 	}
+
+	/**
+	 * @Title: isPhoneNumber
+	 * @Description: TODO验证字符串是不是合法手机号格式
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isPhoneNumber(String str) {
+		if (hasText(str)) {
+			String regex = "1[3|4|5|6|7|8|9]\\d{9}";
+			return str.matches(regex);
+		}
+		return false;
+	}
+
+	/**
+	 * @Title: isEmai 
+	 * @Description: TODO验证字符串是不是合法邮箱地址格式
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isEmail(String str) {
+		if (hasText(str)) {
+			String regex = "[A-z0-9_]+\\@[A-z0-9]+\\.[A-z]+";
+			return str.matches(regex);
+		}
+		return false;
+	}
 }
